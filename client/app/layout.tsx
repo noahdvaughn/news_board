@@ -1,6 +1,9 @@
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+// import  Container  from 'react-bootstrap/Container'
+import styles from '@/styles/layout.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
