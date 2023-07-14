@@ -1,8 +1,11 @@
 import React from 'react'
+import styles from './styles.module.css'
 
 const Search = () => {
   return (
-    <div>Search</div>
+    <div className={styles.background}>
+      SearchPage
+    </div>
   )
 }
 

@@ -1,7 +1,18 @@
-import Image from 'next/image'
+import { NewsArticle } from "@/models/NewsArticles"
+import { GetServerSideProps } from "next"
 
 
-export default function Home() {
+interface BreakingNewsPageProps{
+  newsArticles: NewsArticle[],
+
+}
+
+export const getServerSideProps: GetServerSideProps<BreakingNewsPageProps> =async () => {
+  
+}
+
+
+export default function Home({newsArticles} : BreakingNewsPageProps) {
   return (
     <main>
       page
