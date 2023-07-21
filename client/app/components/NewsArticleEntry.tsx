@@ -14,14 +14,14 @@ const NewsArticleEntry = ({article : {title, description, url, urlToImage}}: New
   // <Link href={url}>
   //     </Link>
   return (
-    <Card sx={{maxWidth: '400px'}}>
+    <Card sx={{width: {xs: '100vw', s: '100vw', md: '100vw', lg: '400px'}, height: {lg: '400px'}}}>
         <CardMedia image={validImageUrl} component='img' alt={title} sx={{padding: 0}}/>
-      <CardContent sx={{p:'20px'}}>
-        <Typography variant="h4">{title}</Typography>
-        <Typography variant="h6">{description}</Typography>
+      <CardContent sx={{p:'20px', height: '10rem', display: 'flex', alignItems: 'center' }}>
+        <Typography variant="h6" >{title}</Typography>
       </CardContent>
       </Card>
   )
 }
 
 export default NewsArticleEntry
+{/* <Typography variant="h6">{description}</Typography> */}

@@ -1,37 +1,29 @@
 import { NewsArticle, NewsResponse } from "@/models/NewsArticles"
 import NewsArticleEntry from "./components/NewsArticleEntry"
-// import { GetServerSideProps } from "next"
+import { Grid } from "@mui/material"
 
-
-// interface BreakingNewsPageProps{
-//   newsArticles: NewsArticle[],
-
-// }
-
-// export const getServerSideProps: GetServerSideProps<BreakingNewsPageProps> =async () => {
-//   const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=' + process.env.API_KEY)
-//   const newsResponse: NewsResponse = await response.json()
-//   return{
-//     props: {newsArticles: newsResponse.articles}
-//   }
-// }
 
 async function getData() {
   const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=' + process.env.API_KEY)
   if (!response.ok) {
     throw new Error('Failed to fetch data')
   }
- 
   return response.json()
 }
 
 
 export default async function Home() {
   const data = await getData()
-  // console.log(data)
+  
   return (
     <main>
-      <NewsArticleEntry article={data.articles[0]} />
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{display: 'flex', justifyContent: 'center'}}>
+        {data.articles.map((articlez: any)=> (
+          <Grid item key={articlez.title}>
+            <NewsArticleEntry article={articlez} />
+          </Grid>
+        ))}
+      </Grid>
       
     </main>
   )
