@@ -9,10 +9,6 @@ interface NewsArticleEntryProps {
 const NewsArticleEntry = ({article : {title, description, url, urlToImage}}: NewsArticleEntryProps) => {
 
   const validImageUrl = (urlToImage?.startsWith('http://') || urlToImage?.startsWith('https://')) ? urlToImage : undefined
-  // console.log(title)
-
-  // <Link href={url}>
-  //     </Link>
   return (
     <Card sx={{width: {xs: '100vw', s: '100vw', md: '100vw', lg: '400px'}, height: {lg: '400px'}}}>
         <CardMedia image={validImageUrl} component='img' alt={title} sx={{padding: 0}}/>

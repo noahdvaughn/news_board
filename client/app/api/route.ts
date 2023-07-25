@@ -8,10 +8,8 @@ export async function GET(request: Request){
   if(!query){
     return NextResponse.json({error: 'Please provide search query'})
   }
+  const res: any = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=` + process.env.API_KEY)
+  const response: any = await res.json()
 
-
-  const res = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=` + process.env.API_KEY)
-  const response = await res.json()
-
-  return NextResponse.json({response})
+  return NextResponse.json(response.articles)
 }
